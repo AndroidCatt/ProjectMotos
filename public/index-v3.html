@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Repuestos Motos - Nivel 3</title>
+    <link rel="stylesheet" href="styles-v3.css">
+</head>
+<body>
+    <!-- Modal de Login/Registro -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <div id="login-form" class="auth-form">
+                <h2>Iniciar Sesión</h2>
+                <input type="text" id="login-username" placeholder="Usuario o Email">
+                <input type="password" id="login-password" placeholder="Contraseña">
+                <button onclick="login()">Iniciar Sesión</button>
+                <p>¿No tienes cuenta? <a href="#" onclick="showRegister()">Regístrate</a></p>
+            </div>
+
+            <div id="register-form" class="auth-form" style="display:none;">
+                <h2>Registrarse</h2>
+                <input type="text" id="reg-username" placeholder="Usuario">
+                <input type="email" id="reg-email" placeholder="Email">
+                <input type="password" id="reg-password" placeholder="Contraseña">
+                <input type="text" id="reg-fullname" placeholder="Nombre Completo">
+                <input type="text" id="reg-phone" placeholder="Teléfono">
+                <textarea id="reg-address" placeholder="Dirección"></textarea>
+                <button onclick="register()">Registrarse</button>
+                <p>¿Ya tienes cuenta? <a href="#" onclick="showLogin()">Inicia Sesión</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>ChatBot de Repuestos</h1>
+                    <p>Motos Colombianas - Versión 3.0</p>
+                </div>
+                <div class="user-section">
+                    <div id="user-info" style="display:none;">
+                        <span id="username-display"></span>
+                        <button onclick="viewCart()" class="icon-btn">
+                            🛒 <span id="cart-count" class="badge">0</span>
+                        </button>
+                        <button onclick="viewFavorites()" class="icon-btn">❤️</button>
+                        <button onclick="viewOrders()" class="icon-btn">📦</button>
+                        <button onclick="logout()" class="btn-secondary">Cerrar Sesión</button>
+                    </div>
+                    <div id="guest-section">
+                        <button onclick="showAuthModal()" class="btn-primary">Iniciar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Panel lateral -->
+            <aside class="sidebar">
+                <div class="info-panel">
+                    <h3>Mi Cuenta</h3>
+                    <div id="account-info" class="account-info">
+                        <p>Inicia sesión para acceder a tu cuenta</p>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Acciones Rápidas</h3>
+                    <button class="action-btn" onclick="quickSearch('mostrar todo')">Ver Catálogo</button>
+                    <button class="action-btn" onclick="quickSearch('categorías')">Categorías</button>
+                    <button class="action-btn" onclick="viewCart()">Mi Carrito</button>
+                    <button class="action-btn" onclick="resetChat()">Nueva Consulta</button>
+                </div>
+            </aside>
+
+            <!-- Chat principal -->
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages"></div>
+
+                <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="chat-input-container">
+                    <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+                    <button id="send-btn">Enviar</button>
+                </div>
+
+                <div class="suggestions" id="suggestions">
+                    <button class="suggestion-btn" onclick="sendSuggestion('hola')">Flujo Guiado</button>
+                    <button class="suggestion-btn" onclick="sendSuggestion('mostrar todo')">Ver Todo</button>
+                    <button class="suggestion-btn" onclick="sendSuggestion('categorías')">Categorías</button>
+                    <button class="suggestion-btn" onclick="sendSuggestion('busco frenos')">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Carrito -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>Mi Carrito</h2>
+            <div id="cart-content"></div>
+            <div id="cart-summary"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Pedidos -->
+    <div id="orders-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeOrdersModal()">&times;</span>
+            <h2>Mis Pedidos</h2>
+            <div id="orders-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Favoritos -->
+    <div id="favorites-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeFavoritesModal()">&times;</span>
+            <h2>Mis Favoritos</h2>
+            <div id="favorites-content"></div>
+        </div>
+    </div>
+
+    <script src="app-v3.js"></script>
+</body>
+</html>

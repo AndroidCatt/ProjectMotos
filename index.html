@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Repuestos de Motos Colombianas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="bot-avatar">🤖</div>
+                    <div>
+                        <h1>ChatBot de Repuestos</h1>
+                        <p>Motos Colombianas - Asistente Inteligente</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="clear-chat" class="header-btn" title="Limpiar chat">🗑️</button>
+                    <button id="toggle-theme" class="header-btn" title="Cambiar tema">🌙</button>
+                    <button id="restart-btn" class="header-btn" title="Reiniciar">🔄</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="chat-container">
+            <div id="chat-messages" class="chat-messages">
+                <div class="welcome-banner">
+                    <h2>¡Bienvenido! 👋</h2>
+                    <p>Soy tu asistente virtual para encontrar repuestos de motos. Puedo ayudarte a:</p>
+                    <ul>
+                        <li>✓ Buscar repuestos por marca y modelo</li>
+                        <li>✓ Recomendar piezas por categoría</li>
+                        <li>✓ Explorar todo nuestro catálogo</li>
+                    </ul>
+                    <p class="start-message">Escribe "hola" para comenzar o usa los botones interactivos 🚀</p>
+                </div>
+            </div>
+
+            <div id="typing-indicator" class="typing-indicator" style="display: none;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="quick-suggestions" id="quick-suggestions">
+                <button class="suggestion-chip" data-message="hola">👋 Comenzar</button>
+                <button class="suggestion-chip" data-message="ayuda">❓ Ayuda</button>
+                <button class="suggestion-chip" data-message="reiniciar">🔄 Reiniciar</button>
+            </div>
+
+            <div class="chat-input-container">
+                <button id="attach-btn" class="attach-btn" title="Adjuntar">📎</button>
+                <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+                <button id="send-btn">
+                    <span class="send-icon">📨</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

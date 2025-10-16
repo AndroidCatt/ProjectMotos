@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Repuestos Motos - Nivel 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ChatBot de Repuestos</h1>
+            <p>Motos Colombianas - Versión 2.0</p>
+            <div class="session-info">
+                <span id="session-indicator">Sesión: <strong id="session-id"></strong></span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Panel lateral con información -->
+            <aside class="sidebar">
+                <div class="info-panel">
+                    <h3>Información</h3>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Marcas:</span>
+                            <span class="stat-value" id="brands-count">4</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Repuestos:</span>
+                            <span class="stat-value" id="parts-count">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h3>Acciones Rápidas</h3>
+                    <button class="action-btn" onclick="quickSearch('precio')">Ver Precios</button>
+                    <button class="action-btn" onclick="quickSearch('disponible')">Disponibilidad</button>
+                    <button class="action-btn" onclick="resetChat()">Nueva Consulta</button>
+                </div>
+
+                <div class="selected-info" id="selected-info" style="display: none;">
+                    <h3>Selección Actual</h3>
+                    <div id="selection-details"></div>
+                </div>
+            </aside>
+
+            <!-- Chat principal -->
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages">
+                    <div class="welcome-message">
+                        <h2>¡Bienvenido! 👋</h2>
+                        <p>Soy tu asistente inteligente para encontrar repuestos de motos colombianas.</p>
+                        <p>Puedo ayudarte con:</p>
+                        <ul>
+                            <li>Recomendaciones de repuestos por marca y modelo</li>
+                            <li>Consultas de precios y disponibilidad</li>
+                            <li>Búsqueda de repuestos específicos</li>
+                        </ul>
+                        <p><strong>¿Cómo puedo ayudarte hoy?</strong></p>
+                    </div>
+                </div>
+
+                <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="chat-input-container">
+                    <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
+                    <button id="send-btn">
+                        <span>Enviar</span>
+                    </button>
+                </div>
+
+                <!-- Sugerencias rápidas -->
+                <div class="suggestions" id="suggestions">
+                    <button class="suggestion-btn" onclick="sendSuggestion('hola')">Flujo Guiado</button>
+                    <button class="suggestion-btn" onclick="sendSuggestion('mostrar todo')">Ver Todo</button>
+                    <button class="suggestion-btn" onclick="sendSuggestion('categorías')">Categorías</button>
+                    <button class="suggestion-btn" onclick="sendSuggestion('¿Cuánto cuesta un filtro de aceite?')">Precios</button>
+                    <button class="suggestion-btn" onclick="sendSuggestion('busco frenos')">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
