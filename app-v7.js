@@ -51,17 +51,14 @@ function initAuthUI() {
         });
     }
 
-    // Form de login
-    const loginForm = document.getElementById('login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    }
-
-    // Form de registro
-    const registerForm = document.getElementById('register-form');
-    if (registerForm) {
-        registerForm.addEventListener('submit', handleRegister);
-    }
+    // Usar delegación de eventos para forms que están en modales
+    document.addEventListener('submit', (e) => {
+        if (e.target.id === 'login-form') {
+            handleLogin(e);
+        } else if (e.target.id === 'register-form') {
+            handleRegister(e);
+        }
+    });
 }
 
 function updateUserUI() {
