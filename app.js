@@ -331,6 +331,29 @@ function updateCartBadge() {
 
 // Función para manejar clics en botones
 function handleButtonClick(value) {
+    // Manejar acción de limpiar favoritos
+    if (value === 'limpiar_favoritos') {
+        if (confirm('¿Estás seguro de que quieres limpiar todos tus favoritos?')) {
+            bot.favorites = [];
+            bot.saveFavorites();
+            showNotification('🗑️ Favoritos limpiados', 'success');
+            addMessage('Tus favoritos han sido limpiados', false);
+        }
+        return;
+    }
+
+    // Manejar acción de ver carrito
+    if (value === 'ver carrito') {
+        document.getElementById('cart-btn').click();
+        return;
+    }
+
+    // Manejar acción de ver favoritos
+    if (value === 'ver favoritos') {
+        document.getElementById('favorites-btn').click();
+        return;
+    }
+
     // Mostrar el mensaje del usuario
     addMessage(value, true);
 
