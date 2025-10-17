@@ -14,7 +14,7 @@
 
 class WhatsAppBusinessIntegration {
     constructor() {
-        this.businessPhone = '+573001234567'; // TODO: Configurar número real
+        this.businessPhone = '+573212018219'; // Número de WhatsApp Business
         this.apiToken = null; // TODO: Configurar token de WhatsApp Business API
         this.templates = this.loadTemplates();
         this.init();
