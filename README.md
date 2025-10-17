@@ -1,337 +1,460 @@
-# ChatBot de Repuestos de Motos Colombianas
+# 🏍️ ChatBot Repuestos de Motos - E-commerce Completo v7.0
 
-Proyecto de grado - Sistema de recomendación de repuestos para motocicletas de marcas colombianas.
+[![Version](https://img.shields.io/badge/version-7.0-blue.svg)](https://github.com/AndroidCatt/ProjectMotos/releases/tag/v7.0)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![JavaScript](https://img.shields.io/badge/javascript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Made with ❤️](https://img.shields.io/badge/made%20with-%E2%9D%A4%EF%B8%8F-red.svg)](https://github.com/AndroidCatt)
 
-## Versiones
+> Sistema completo de e-commerce con chatbot inteligente, autenticación, checkout multi-paso, y gestión de pedidos para repuestos de motos colombianas.
 
-### Nivel 1 (Básico)
-- Chatbot con JavaScript vanilla
-- Sin backend
-- Datos estáticos
+[🚀 Ver Demo](#) | [📖 Documentación](README_V7.md) | [🛠️ Guía de Desarrollo](DEVELOPER_GUIDE.md) | [⚡ Inicio Rápido](QUICK_START.md)
 
-### Nivel 2 (Intermedio)
-- Backend con Node.js y Express
-- Base de datos SQLite
-- API REST completa
-- NLP básico con Natural.js
-- Sistema de precios y disponibilidad
-- Historial de conversaciones
-- Interfaz mejorada con diseño profesional
-- Búsqueda inteligente de repuestos
+---
 
-### Nivel 3 (Actual - E-Commerce Completo) 🚀⭐
-- Todo lo del Nivel 2 +
-- **Autenticación completa** (Login/Registro con JWT)
-- **Carrito de compras funcional**
-- **Sistema de pedidos completo**
-- **Lista de favoritos**
-- **Panel de administración**
-- **Gestión de usuarios y roles**
-- **Interfaz con modales y acciones interactivas**
-- **Persistencia de sesión con localStorage**
+## ✨ Características Principales
 
-## Características Nivel 3 🚀
+### 🔐 Autenticación Completa
+- ✅ Login y registro de usuarios
+- ✅ Gestión de sesiones (30 min timeout)
+- ✅ Recuperación de contraseña
+- ✅ Perfil de usuario editable (3 pestañas: Info, Dirección, Seguridad)
+- ✅ Cuenta demo: `demo`/`demo123`
 
-### Autenticación y Usuarios
-- ✅ Sistema completo de registro e inicio de sesión
-- ✅ Autenticación con JWT (JSON Web Tokens)
-- ✅ Roles de usuario (customer, admin)
-- ✅ Persistencia de sesión con localStorage
-- ✅ Perfil de usuario completo
+### 💳 Sistema de Checkout Multi-Paso
+- ✅ **7 métodos de pago**: Tarjetas, PSE, Nequi, Daviplata, Efectivo, Transferencia
+- ✅ **4 opciones de envío**: Estándar, Express, Mismo Día, Recoger en Tienda
+- ✅ Proceso de 3 pasos con validación completa
+- ✅ Cálculo automático de totales y descuentos
+- ✅ Simulación de procesamiento de pago (95% tasa de éxito)
 
-### Carrito de Compras
-- ✅ Agregar productos al carrito
-- ✅ Modificar cantidades
-- ✅ Eliminar productos
-- ✅ Cálculo automático de totales
-- ✅ Vista detallada del carrito
+### 📦 Gestión de Pedidos
+- ✅ Historial completo de pedidos del usuario
+- ✅ Tracking con número de seguimiento único
+- ✅ Timeline de estados con fechas y horas
+- ✅ Estados: Confirmado, En Preparación, Enviado, En Tránsito, En Reparto, Entregado
+- ✅ Opción de cancelar pedidos (excepto entregados)
 
-### Sistema de Pedidos
-- ✅ Realizar pedidos desde el carrito
-- ✅ Historial completo de pedidos
-- ✅ Estados de pedido (pending, completed, cancelled)
-- ✅ Dirección de entrega personalizada
-- ✅ Tracking de pedidos por usuario
+### 🤖 Chatbot Inteligente
+- ✅ Motor de IA con NLP (Procesamiento de Lenguaje Natural)
+- ✅ **200+ productos** organizados por marca y modelo
+- ✅ **Sistema de entrenamiento personalizable** (training-system.js)
+- ✅ Chat por voz (Speech-to-Text en español Colombia)
+- ✅ Detección de intenciones y extracción de entidades
+- ✅ Respuestas contextuales y conversacionales
 
-### Favoritos
-- ✅ Agregar repuestos a favoritos
-- ✅ Lista personalizada de favoritos
-- ✅ Acceso rápido a productos favoritos
+### 🎯 Funcionalidades Premium
+- ❤️ **Sistema de favoritos** con persistencia
+- 🛒 **Carrito de compras** con cantidades y totales
+- 📄 **Exportación a PDF** (cotizaciones, favoritos, catálogo)
+- ⚖️ **Comparación de productos** (hasta 4 simultáneos)
+- 🏆 **Gamificación** (niveles, puntos, logros desbloqueables)
+- 🎟️ **Sistema de cupones** y promociones con validación
+- 📊 **Gráficos interactivos** con Chart.js (precios, ratings)
+- 🎤 **Síntesis de voz** (Text-to-Speech) para respuestas
+- 🔍 **Búsqueda inteligente** con autocompletado
+- 🎨 **Modo oscuro** elegante
+- 📱 **Diseño 100% responsive**
 
-### Panel de Administración
-- ✅ Gestión de repuestos (CRUD completo)
-- ✅ Ver todos los pedidos
-- ✅ Actualizar estado de pedidos
-- ✅ Control de inventario
-- ✅ Endpoints protegidos con roles
+---
 
-### Chatbot Mejorado
-- ✅ Botones de acción en cada producto (🛒 carrito, ❤️ favoritos)
-- ✅ Tarjetas de producto interactivas
-- ✅ Mensajes contextuales según estado de login
-- ✅ Búsqueda inteligente con NLP
-- ✅ Flujo conversacional guiado
+## 🚀 Inicio Rápido
 
-### Interfaz de Usuario
-- ✅ Modales para login, carrito, pedidos, favoritos
-- ✅ Animaciones suaves
-- ✅ Indicadores visuales (badges, estados)
-- ✅ Diseño responsive y profesional
-- ✅ Mensajes de éxito/error contextuales
+### Opción 1: Abrir Directamente (Recomendado)
 
-## Estructura del Proyecto
+```bash
+# Clona el repositorio
+git clone https://github.com/AndroidCatt/ProjectMotos.git
+cd ProjectMotos
+
+# Abre index.html en tu navegador
+# Windows:
+start index.html
+# Linux:
+xdg-open index.html
+# Mac:
+open index.html
+```
+
+### Opción 2: Con Servidor Local
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor
+npm start
+
+# Abrir en navegador
+http://localhost:3000
+```
+
+### 🎯 Cuenta Demo para Pruebas
+- **Usuario:** `demo`
+- **Contraseña:** `demo123`
+
+---
+
+## 📖 Documentación Completa
+
+| Documento | Descripción | Líneas |
+|-----------|-------------|--------|
+| [⚡ QUICK_START.md](QUICK_START.md) | Inicio rápido en 5 minutos | 200 |
+| [🛠️ DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md) | Guía completa de desarrollo y personalización | 860 |
+| [📚 README_V7.md](README_V7.md) | Documentación detallada del nivel 7 | 640 |
+| [📚 README_V6.md](README_V6.md) | Documentación del nivel 6 (IA, voz, PDF) | 670 |
+| [📚 README_V5.md](README_V5.md) | Documentación del nivel 5 (precios, carrito) | 350 |
+| [📝 CHANGELOG_V5.md](CHANGELOG_V5.md) | Registro de cambios nivel 5 | 270 |
+
+---
+
+## 🏗️ Arquitectura del Proyecto
 
 ```
 chatbot-repuestos-motos/
-├── public/
-│   ├── index.html         # Página principal Nivel 3
-│   ├── index-v3.html      # Versión backup Nivel 3
-│   ├── index-backup.html  # Versión Nivel 2
-│   ├── styles-v3.css      # Estilos Nivel 3
-│   ├── app-v3.js          # Cliente principal Nivel 3
-│   ├── app-v3-auth.js     # Funciones de autenticación
-│   └── app.js             # Cliente Nivel 2
-├── scripts/
-│   └── init-database.js   # Inicializador de BD
-├── server-v3.js           # Servidor Nivel 3 (actual)
-├── server.js              # Servidor Nivel 2
-├── auth.js                # Middleware de autenticación
-├── package.json           # Dependencias
-├── database.db            # Base de datos SQLite (generada)
-├── .gitignore
-└── README.md
+│
+├── 📄 index.html                    # Interfaz principal v7.0
+├── 🎨 styles.css                    # Estilos completos (2889 líneas)
+│
+├── 🤖 LÓGICA DEL CHATBOT
+│   ├── chatbot.js                   # Base de datos de 200+ productos
+│   ├── ai-engine.js                 # Motor de IA con NLP
+│   └── training-system.js           # Sistema de entrenamiento ⭐
+│
+├── 🔐 AUTENTICACIÓN Y COMPRAS
+│   ├── auth-system.js               # Login, registro, sesiones
+│   ├── checkout-system.js           # Checkout, pagos, pedidos
+│   └── voice-and-export.js          # Voz y exportación PDF
+│
+├── 🎯 INTEGRACIÓN
+│   ├── app.js                       # Funciones UI nivel 5
+│   ├── app-v6.js                    # Integración nivel 6
+│   └── app-v7.js                    # Integración nivel 7 ⭐
+│
+├── 📚 DOCUMENTACIÓN
+│   ├── README.md                    # Este archivo
+│   ├── QUICK_START.md               # Inicio rápido
+│   ├── DEVELOPER_GUIDE.md           # Guía de desarrollo
+│   ├── README_V7.md                 # Docs nivel 7
+│   ├── README_V6.md                 # Docs nivel 6
+│   └── README_V5.md                 # Docs nivel 5
+│
+└── 🖥️ SERVIDOR (opcional)
+    └── server-v3.js                 # Servidor Node.js + SQLite
 ```
 
-## Instalación y Uso
+---
 
-### 1. Instalar dependencias
-```bash
-npm install
-```
-
-### 2. Inicializar base de datos
-```bash
-npm run init-db
-```
-
-### 3. Iniciar servidor
-```bash
-npm start
-```
-
-O para desarrollo con auto-reload:
-```bash
-npm run dev
-```
-
-### 4. Abrir navegador
-Navega a `http://localhost:3000`
-
-## Marcas y Modelos Incluidos
-
-### Auteco
-- Discover 125
-- Pulsar NS 200
-- Pulsar NS 160
-- Victory 100
-
-### AKT
-- NKD 125
-- TTR 200
-- CR5 180
-- AK 125
-
-### TVS
-- Apache RTR 160
-- Apache RTR 200
-- Sport 100
-
-### Boxer
-- BM 150
-- BM 125
-- CT 100
-
-## Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
 ### Frontend
-- HTML5
-- CSS3 (con variables CSS y diseño responsive)
-- JavaScript (ES6+)
-- Fetch API
+- **HTML5** - Estructura semántica completa
+- **CSS3** - Grid, Flexbox, Animations, Variables CSS
+- **JavaScript ES6+** - Classes, Async/Await, Modules, Destructuring
+- **LocalStorage API** - Persistencia de datos en cliente
 
-### Backend
-- Node.js
-- Express.js
-- SQLite3
-- Natural.js (NLP)
-- CORS
-- Body-parser
+### APIs Web
+- **Web Speech API** - Reconocimiento y síntesis de voz
+- **jsPDF 2.5.1** - Generación de PDFs profesionales
+- **Chart.js 4.4.0** - Gráficos interactivos (barras, radar)
 
-## API Endpoints
+### Backend (Opcional)
+- **Node.js** - Entorno de ejecución
+- **Express** - Framework web
+- **SQLite** - Base de datos embebida
 
-### Marcas
-- `GET /api/brands` - Obtener todas las marcas
+### Características del Código
+- ✅ Programación Orientada a Objetos (POO)
+- ✅ Patrón MVC simplificado
+- ✅ Event-driven architecture
+- ✅ State management con localStorage
+- ✅ Responsive design con media queries
+- ✅ Progressive enhancement
 
-### Modelos
-- `GET /api/models/:brandId` - Obtener modelos por marca
+---
 
-### Categorías
-- `GET /api/categories` - Obtener todas las categorías
+## 🎓 Personalización Rápida
 
-### Repuestos
-- `GET /api/parts?brandId=&categoryId=` - Obtener repuestos filtrados
-- `POST /api/search` - Búsqueda de repuestos por texto
+### 1. Entrenar el Bot (Consola del navegador)
 
-### Conversaciones
-- `POST /api/conversations` - Guardar conversación
-- `GET /api/conversations/:sessionId` - Obtener historial
+```javascript
+// Inicializar sistema de entrenamiento
+const trainer = new TrainingSystem();
 
-### Chat
-- `POST /api/chat` - Procesar mensaje con NLP
+// Ver estadísticas
+trainer.getTrainingStats();
 
-## Base de Datos
+// Cambiar nombre y personalidad del bot
+trainer.updatePersonality({
+    name: 'MiBot Personalizado',
+    tone: 'professional',  // friendly, professional, casual, enthusiastic
+    useEmoji: true
+});
 
-La base de datos incluye:
-- **4 marcas** colombianas
-- **15+ modelos** de motos
-- **6 categorías** de repuestos
-- **120+ repuestos** con precios y stock
+// Agregar producto personalizado
+trainer.addCustomProduct({
+    name: 'Amortiguador Premium',
+    brand: 'Yamaha',
+    category: 'suspension',
+    model: 'R15',
+    price: 450000,
+    discount: 15,
+    rating: 4.9,
+    stock: 10,
+    image: '🔧'
+});
 
-### Categorías:
-1. Motor (pistones, filtros, bujías, etc.)
-2. Suspensión (amortiguadores, horquillas)
-3. Frenos (pastillas, discos, bombas)
-4. Sistema Eléctrico (baterías, CDI, reguladores)
-5. Transmisión (cadenas, piñones, coronas)
-6. Otros (llantas, filtros de aire, espejos)
+// Agregar respuesta personalizada
+trainer.addCustomResponse(
+    'garantia',
+    'garantía',
+    'Todos nuestros productos tienen 1 año de garantía de fábrica.'
+);
 
-## Funcionalidades del Chatbot
-
-### Consultas Soportadas:
-- **Precios**: "¿Cuánto cuesta un filtro de aceite?"
-- **Disponibilidad**: "¿Hay pastillas de freno disponibles?"
-- **Búsqueda**: "Busco repuestos para motor"
-- **Conversacional**: Flujo guiado paso a paso
-
-### Inteligencia:
-- Detección de intenciones con NLP
-- Tokenización de mensajes
-- Búsqueda semántica
-- Contexto de conversación
-
-## Mejoras Futuras (Nivel 3)
-
-- [ ] Autenticación de usuarios
-- [ ] Panel de administración
-- [ ] Imágenes de repuestos
-- [ ] Sistema de carrito de compras
-- [ ] Integración con pasarelas de pago
-- [ ] Chatbot con IA generativa (GPT)
-- [ ] Recomendaciones personalizadas con ML
-- [ ] Notificaciones en tiempo real
-- [ ] Soporte multiidioma
-- [ ] App móvil nativa
-
-## Licencia
-
-MIT
-
-## Guía de Uso - Nivel 3 🎯
-
-### Credenciales por Defecto
-
-**Usuario Administrador:**
-- Username: `admin`
-- Password: `admin123`
-- Rol: admin
-
-### Flujo de Uso Recomendado
-
-1. **Primera vez:**
-   - Abre http://localhost:3000
-   - Haz clic en "Iniciar Sesión"
-   - Crea una cuenta nueva o usa admin/admin123
-   
-2. **Explorar productos:**
-   - Escribe "mostrar todo" en el chat
-   - O usa "categorías" para ver por tipo
-   - Cada producto tiene botones 🛒 y ❤️
-   
-3. **Agregar al carrito:**
-   - Haz clic en 🛒 en cualquier producto
-   - El badge del carrito se actualizará
-   - Haz clic en el ícono del carrito en el header para ver
-   
-4. **Realizar pedido:**
-   - En el carrito, haz clic en "Realizar Pedido"
-   - Ingresa tu dirección de entrega
-   - El pedido quedará en tu historial
-   
-5. **Ver pedidos:**
-   - Haz clic en el ícono 📦 en el header
-   - Verás todos tus pedidos con su estado
-   
-6. **Favoritos:**
-   - Haz clic en ❤️ en cualquier producto
-   - Accede a tus favoritos desde el ícono ❤️ en el header
-
-### Comandos del Chatbot
-
-- `hola` - Inicia flujo guiado
-- `mostrar todo` - Ver catálogo completo
-- `categorías` - Ver categorías disponibles
-- `busco [producto]` - Buscar repuesto específico
-- `¿cuánto cuesta [producto]?` - Consultar precio
-- `¿hay [producto] disponible?` - Ver disponibilidad
-
-## API Endpoints - Nivel 3
-
-### Autenticación
-```
-POST /api/auth/register - Registrar nuevo usuario
-POST /api/auth/login - Iniciar sesión
-GET /api/auth/profile - Obtener perfil (requiere token)
+// Exportar toda la configuración
+const config = trainer.exportTrainingData();
+console.log(config);  // Copiar y guardar
 ```
 
-### Carrito (requiere autenticación)
-```
-GET /api/cart - Obtener carrito del usuario
-POST /api/cart - Agregar producto al carrito
-PUT /api/cart/:id - Actualizar cantidad
-DELETE /api/cart/:id - Eliminar producto del carrito
-DELETE /api/cart - Vaciar carrito
+### 2. Cambiar Colores del Tema
+
+Edita `styles.css` líneas 7-16:
+
+```css
+:root {
+    --primary-color: #667eea;    /* Azul principal */
+    --secondary-color: #764ba2;  /* Morado secundario */
+    --accent-color: #f093fb;     /* Rosa acento */
+    --success-color: #4caf50;    /* Verde éxito */
+}
 ```
 
-### Pedidos (requiere autenticación)
-```
-POST /api/orders - Crear nuevo pedido
-GET /api/orders - Obtener pedidos del usuario
-GET /api/orders/:id - Obtener detalle de un pedido
+### 3. Cambiar Logo/Avatar
+
+Edita `index.html` línea 14:
+
+```html
+<div class="bot-avatar">🤖</div>  <!-- Cambia el emoji -->
 ```
 
-### Favoritos (requiere autenticación)
-```
-GET /api/favorites - Obtener favoritos del usuario
-POST /api/favorites - Agregar a favoritos
-DELETE /api/favorites/:partId - Eliminar de favoritos
+Opciones: 🤖 🚀 💬 🔧 🏍️ ⚙️ 🛠️
+
+---
+
+## 📊 Estadísticas del Proyecto
+
+### Líneas de Código
+- **Total:** +10,200 líneas
+- **JavaScript:** 4,560 líneas (10 archivos)
+- **CSS:** 2,889 líneas (1 archivo)
+- **HTML:** 392 líneas (1 archivo)
+- **Documentación:** 2,500+ líneas (6 archivos)
+
+### Contenido
+- **Productos:** 200+ repuestos
+- **Marcas:** 4 (Auteco, AKT, TVS, Boxer)
+- **Modelos:** 15+ motos
+- **Métodos de pago:** 7
+- **Opciones de envío:** 4
+- **Modales UI:** 12
+- **Intents de IA:** 10+
+- **Logros desbloqueables:** 8
+
+---
+
+## 🎯 Flujo de Uso Completo
+
+### 1. Primera Visita
+1. Abrir `index.html` en el navegador
+2. Click en 👤 → "🔐 Iniciar Sesión"
+3. Login con `demo`/`demo123` o crear cuenta
+
+### 2. Explorar Productos
+1. Escribir "hola" en el chat
+2. Seleccionar: Auteco → Pulsar NS 125 → Motor
+3. Ver productos con precios, descuentos, ratings
+4. Usar 🔍 búsqueda rápida (opcional)
+
+### 3. Agregar al Carrito
+1. Click en 🛒 en cualquier producto
+2. Ver badge del carrito actualizado
+3. Ajustar cantidades desde el carrito
+
+### 4. Realizar Compra
+1. Click en botón del carrito (header)
+2. Completar **Paso 1**: Información de envío
+3. Completar **Paso 2**: Método de pago
+4. Revisar **Paso 3**: Confirmación
+5. Click "Confirmar y Pagar"
+
+### 5. Ver Pedidos
+1. Click en 👤 → "📦 Mis Pedidos"
+2. Ver historial con estados
+3. Click en pedido para ver timeline detallado
+
+### 6. Otras Funciones
+- ❤️ Favoritos: Guardar productos preferidos
+- 📄 PDF: Exportar cotización o favoritos
+- ⚖️ Comparar: Hasta 4 productos simultáneos
+- 🎟️ Cupones: Aplicar códigos promocionales
+- 👤 Perfil: Editar datos personales
+
+---
+
+## 🔌 API del Sistema de Entrenamiento
+
+```javascript
+// Crear instancia
+const trainer = new TrainingSystem();
+
+// Métodos disponibles
+trainer.addCustomResponse(intent, pattern, response)
+trainer.addCustomProduct(productData)
+trainer.addExample(conversationExample)
+trainer.updatePersonality(settings)
+trainer.getTrainingStats()
+trainer.exportTrainingData()
+trainer.importTrainingData(jsonData)
+trainer.resetTraining()
+trainer.matchIntent(userInput)
+trainer.getResponse(intent)
 ```
 
-### Admin (requiere autenticación y rol admin)
-```
-GET /api/admin/orders - Ver todos los pedidos
-PUT /api/admin/orders/:id - Actualizar estado de pedido
-POST /api/admin/parts - Agregar repuesto
-PUT /api/admin/parts/:id - Actualizar repuesto
-DELETE /api/admin/parts/:id - Eliminar repuesto
-```
+Ver [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md) para documentación completa de la API.
 
-### Públicos
-```
-GET /api/brands - Obtener marcas
-GET /api/models/:brandId - Obtener modelos por marca
-GET /api/categories - Obtener categorías
-GET /api/parts - Obtener repuestos (filtros: brandId, categoryId)
-POST /api/search - Buscar repuestos por texto
-POST /api/chat - Procesar mensaje con NLP
-```
+---
 
+## 🤝 Contribuir
+
+¡Las contribuciones son bienvenidas! Por favor:
+
+1. Fork el proyecto
+2. Crea una rama (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add: amazing feature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### Áreas de Contribución
+- 🐛 Reportar bugs
+- ✨ Sugerir nuevas funcionalidades
+- 📝 Mejorar documentación
+- 🌍 Traducciones
+- 🎨 Mejorar UI/UX
+- ⚡ Optimizaciones de rendimiento
+
+---
+
+## 📝 Changelog
+
+### [7.0.0] - 2025-10-16 🚀
+#### Agregado
+- ✅ Sistema de autenticación completo (login/registro/recuperación)
+- ✅ Checkout multi-paso con 7 métodos de pago
+- ✅ Gestión y tracking completo de pedidos
+- ✅ Sistema de entrenamiento del bot (training-system.js)
+- ✅ Perfil de usuario con 3 pestañas editables
+- ✅ 6 nuevos modales en la UI
+- ✅ Documentación completa (DEVELOPER_GUIDE.md, QUICK_START.md)
+
+#### Mejorado
+- 🎨 +1,100 líneas de estilos CSS nivel 7
+- 📦 Base de datos de 200+ productos
+- 🤖 Motor de IA mejorado
+- 📱 Responsive design optimizado
+
+### [6.0.0] - 2025-10-15
+#### Agregado
+- ✅ Motor de IA con NLP
+- ✅ Chat por voz (Speech-to-Text y Text-to-Speech)
+- ✅ Exportación profesional a PDF
+- ✅ Comparación de productos con gráficos
+- ✅ Sistema de gamificación completo
+- ✅ Cupones y promociones
+
+### [5.0.0] - 2025-10-14
+#### Agregado
+- ✅ Sistema de precios en COP
+- ✅ Descuentos dinámicos
+- ✅ Carrito de compras funcional
+- ✅ Sistema de favoritos
+- ✅ Búsqueda rápida con autocompletado
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 👤 Autor
+
+**AndroidCatt**
+- 🐙 GitHub: [@AndroidCatt](https://github.com/AndroidCatt)
+- 📧 Email: gamep288@gmail.com
+- 🔗 Proyecto: [ProjectMotos](https://github.com/AndroidCatt/ProjectMotos)
+
+---
+
+## 🙏 Agradecimientos
+
+- **Claude (Anthropic)** - Asistencia en desarrollo con IA
+- **jsPDF Team** - Librería de generación de PDFs
+- **Chart.js Team** - Librería de gráficos interactivos
+- **MDN Web Docs** - Documentación de referencia
+- **Comunidad Open Source** - Inspiración y recursos
+
+---
+
+## 📞 Soporte
+
+¿Necesitas ayuda?
+
+- 📧 **Email:** gamep288@gmail.com
+- 💬 **Issues:** [GitHub Issues](https://github.com/AndroidCatt/ProjectMotos/issues)
+- 📚 **Documentación:** [Guía Completa](DEVELOPER_GUIDE.md)
+- ⚡ **Inicio Rápido:** [Quick Start](QUICK_START.md)
+
+---
+
+## 🌟 Roadmap Futuro
+
+### Nivel 8 (Planeado)
+- [ ] PWA (Progressive Web App) completo
+- [ ] Notificaciones Push
+- [ ] Sistema de reviews y calificaciones
+- [ ] Dashboard de administrador
+- [ ] Chat en tiempo real con WebSockets
+- [ ] Wishlist compartida
+- [ ] Modo offline con Service Workers
+
+### Largo Plazo
+- [ ] Integración con pasarelas de pago reales
+- [ ] Backend completo con API REST
+- [ ] App móvil nativa (React Native)
+- [ ] Sistema de recomendaciones con ML
+- [ ] Multi-idioma (i18n)
+- [ ] Panel de analytics
+
+---
+
+<p align="center">
+  <strong>⭐ Si te gustó el proyecto, dale una estrella en GitHub ⭐</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/AndroidCatt/ProjectMotos">
+    <img src="https://img.shields.io/github/stars/AndroidCatt/ProjectMotos?style=social" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/AndroidCatt/ProjectMotos/fork">
+    <img src="https://img.shields.io/github/forks/AndroidCatt/ProjectMotos?style=social" alt="GitHub forks">
+  </a>
+</p>
+
+<p align="center">
+  <sub>Hecho con ❤️ y ☕ por <a href="https://github.com/AndroidCatt">AndroidCatt</a></sub>
+</p>
+
+---
+
+**Versión 7.0** - ChatBot Repuestos de Motos Colombianas
+© 2025 AndroidCatt. Todos los derechos reservados.
