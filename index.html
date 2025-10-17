@@ -14,14 +14,34 @@
                     <div class="bot-avatar">🤖</div>
                     <div>
                         <h1>ChatBot de Repuestos</h1>
-                        <p>Motos Colombianas - Asistente Inteligente</p>
+                        <p>Motos Colombianas - Asistente Inteligente v7.0 🚀</p>
                     </div>
                 </div>
                 <div class="header-actions">
+                    <button id="voice-btn" class="header-btn" title="Chat por voz">🎤</button>
+                    <button id="search-btn" class="header-btn" title="Búsqueda rápida">🔍</button>
+                    <button id="favorites-btn" class="header-btn" title="Favoritos">❤️</button>
+                    <button id="cart-btn" class="header-btn" title="Carrito">🛒</button>
+                    <button id="export-btn" class="header-btn" title="Exportar PDF">📄</button>
                     <button id="clear-chat" class="header-btn" title="Limpiar chat">🗑️</button>
                     <button id="toggle-theme" class="header-btn" title="Cambiar tema">🌙</button>
                     <button id="restart-btn" class="header-btn" title="Reiniciar">🔄</button>
+
+                    <!-- Botón de usuario/login -->
+                    <div class="user-menu-container">
+                        <button id="user-menu-btn" class="header-btn user-btn" title="Mi cuenta">👤</button>
+                        <div id="user-dropdown" class="user-dropdown" style="display: none;">
+                            <!-- Contenido dinámico según estado de login -->
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Barra de búsqueda rápida -->
+            <div id="search-bar" class="search-bar" style="display: none;">
+                <input type="text" id="quick-search" placeholder="🔍 Buscar repuestos por nombre..." autocomplete="off">
+                <button id="close-search" class="close-search-btn">✕</button>
+                <div id="search-results" class="search-results"></div>
             </div>
         </header>
 
@@ -29,13 +49,36 @@
             <div id="chat-messages" class="chat-messages">
                 <div class="welcome-banner">
                     <h2>¡Bienvenido! 👋</h2>
-                    <p>Soy tu asistente virtual para encontrar repuestos de motos. Puedo ayudarte a:</p>
+                    <p>Soy tu asistente virtual inteligente v7.0 para encontrar repuestos de motos. Características premium:</p>
                     <ul>
-                        <li>✓ Buscar repuestos por marca y modelo</li>
-                        <li>✓ Recomendar piezas por categoría</li>
-                        <li>✓ Explorar todo nuestro catálogo</li>
+                        <li>🔐 Sistema de autenticación completo</li>
+                        <li>💳 Checkout con 7 métodos de pago</li>
+                        <li>📦 Gestión y tracking de pedidos</li>
+                        <li>🔍 Búsqueda inteligente con IA</li>
+                        <li>🎤 Chat por voz (Speech-to-Text)</li>
+                        <li>💰 Precios en tiempo real con descuentos</li>
+                        <li>❤️ Favoritos y carrito de compras</li>
+                        <li>📄 Exportación a PDF profesional</li>
+                        <li>⚖️ Comparación de productos</li>
+                        <li>🏆 Sistema de gamificación</li>
+                        <li>🎨 Modo oscuro elegante</li>
+                        <li>📱 Diseño responsive</li>
                     </ul>
-                    <p class="start-message">Escribe "hola" para comenzar o usa los botones interactivos 🚀</p>
+                    <p class="start-message">Escribe "hola" para comenzar o usa la búsqueda rápida 🚀</p>
+                    <div class="welcome-stats">
+                        <div class="stat-item">
+                            <div class="stat-value">4</div>
+                            <div class="stat-label">Marcas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">200+</div>
+                            <div class="stat-label">Repuestos</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">4.7⭐</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -61,7 +104,293 @@
         </div>
     </div>
 
+    <!-- Modales y overlays del nivel 6 -->
+
+    <!-- Modal de comparación -->
+    <div id="compare-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>⚖️ Comparación de Productos</h2>
+                <button class="modal-close" onclick="closeModal('compare-modal')">✕</button>
+            </div>
+            <div id="compare-content" class="modal-body">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de estadísticas y logros -->
+    <div id="stats-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📊 Tu Perfil y Estadísticas</h2>
+                <button class="modal-close" onclick="closeModal('stats-modal')">✕</button>
+            </div>
+            <div id="stats-content" class="modal-body">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de cupones -->
+    <div id="coupons-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎟️ Cupones y Promociones</h2>
+                <button class="modal-close" onclick="closeModal('coupons-modal')">✕</button>
+            </div>
+            <div id="coupons-content" class="modal-body">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de tutorial -->
+    <div id="tutorial-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🎓 Tutorial Interactivo</h2>
+                <button class="modal-close" onclick="closeModal('tutorial-modal')">✕</button>
+            </div>
+            <div id="tutorial-content" class="modal-body">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón flotante de ayuda -->
+    <div id="floating-help" class="floating-button">
+        <button id="help-button" class="fab-button" title="Ayuda y Tutorial">
+            ❓
+        </button>
+        <div class="fab-menu" id="fab-menu" style="display: none;">
+            <button class="fab-menu-item" onclick="openTutorial()">
+                <span class="fab-icon">🎓</span>
+                <span class="fab-label">Tutorial</span>
+            </button>
+            <button class="fab-menu-item" onclick="openStats()">
+                <span class="fab-icon">📊</span>
+                <span class="fab-label">Estadísticas</span>
+            </button>
+            <button class="fab-menu-item" onclick="openCoupons()">
+                <span class="fab-icon">🎟️</span>
+                <span class="fab-label">Cupones</span>
+            </button>
+            <button class="fab-menu-item" onclick="openComparison()">
+                <span class="fab-icon">⚖️</span>
+                <span class="fab-label">Comparar</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Indicador de nivel del usuario -->
+    <div id="user-level-badge" class="user-level-badge">
+        <div class="level-icon">🏆</div>
+        <div class="level-info">
+            <div class="level-number">Nivel <span id="user-level">1</span></div>
+            <div class="level-points"><span id="user-points">0</span> pts</div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- MODALES NIVEL 7: AUTENTICACIÓN Y CHECKOUT -->
+    <!-- ============================================ -->
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-auth">
+            <div class="modal-header">
+                <h2>🔐 Iniciar Sesión</h2>
+                <button class="modal-close" onclick="closeModal('login-modal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="login-username">Usuario o Email</label>
+                        <input type="text" id="login-username" name="username" required autocomplete="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Contraseña</label>
+                        <input type="password" id="login-password" name="password" required autocomplete="current-password">
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember"> Recordarme
+                        </label>
+                        <a href="#" class="link-text" onclick="openPasswordReset(); return false;">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Iniciar Sesión</button>
+                    <div class="form-divider">
+                        <span>o</span>
+                    </div>
+                    <p class="form-footer">
+                        ¿No tienes cuenta? <a href="#" onclick="openRegisterModal(); return false;">Regístrate aquí</a>
+                    </p>
+                    <div class="demo-info">
+                        <p>🎯 <strong>Cuenta Demo:</strong> usuario: <code>demo</code> | contraseña: <code>demo123</code></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div id="register-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-auth">
+            <div class="modal-header">
+                <h2>📝 Crear Cuenta</h2>
+                <button class="modal-close" onclick="closeModal('register-modal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="register-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="register-fullname">Nombre Completo</label>
+                        <input type="text" id="register-fullname" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-username">Usuario</label>
+                        <input type="text" id="register-username" name="username" required autocomplete="username">
+                        <small>Solo letras, números y guiones bajos (mínimo 3 caracteres)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Correo Electrónico</label>
+                        <input type="email" id="register-email" name="email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-phone">Teléfono (opcional)</label>
+                        <input type="tel" id="register-phone" name="phone" placeholder="+57 300 123 4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Contraseña</label>
+                        <input type="password" id="register-password" name="password" required autocomplete="new-password">
+                        <small>Mínimo 6 caracteres, debe incluir letras y números</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirmar Contraseña</label>
+                        <input type="password" id="register-confirm-password" name="confirmPassword" required autocomplete="new-password">
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            Acepto los <a href="#" class="link-text">términos y condiciones</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Crear Cuenta</button>
+                    <p class="form-footer">
+                        ¿Ya tienes cuenta? <a href="#" onclick="openLoginModal(); return false;">Inicia sesión aquí</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div id="checkout-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-large modal-checkout">
+            <div class="modal-header">
+                <h2>🛒 Finalizar Compra</h2>
+                <button class="modal-close" onclick="closeModal('checkout-modal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="checkout-container">
+                    <!-- Progress Steps -->
+                    <div class="checkout-steps">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Envío</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Pago</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Confirmar</div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Content -->
+                    <div id="checkout-content" class="checkout-content">
+                        <!-- Contenido dinámico según el paso -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Mis Pedidos -->
+    <div id="orders-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>📦 Mis Pedidos</h2>
+                <button class="modal-close" onclick="closeModal('orders-modal')">✕</button>
+            </div>
+            <div id="orders-content" class="modal-body">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Detalle de Pedido -->
+    <div id="order-detail-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>📋 Detalle del Pedido</h2>
+                <button class="modal-close" onclick="closeModal('order-detail-modal')">✕</button>
+            </div>
+            <div id="order-detail-content" class="modal-body">
+                <!-- Contenido dinámico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Perfil de Usuario -->
+    <div id="profile-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>👤 Mi Perfil</h2>
+                <button class="modal-close" onclick="closeModal('profile-modal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-tabs">
+                    <button class="profile-tab active" data-tab="info">Información</button>
+                    <button class="profile-tab" data-tab="address">Dirección</button>
+                    <button class="profile-tab" data-tab="security">Seguridad</button>
+                </div>
+                <div id="profile-content" class="profile-content">
+                    <!-- Contenido dinámico -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Pedido -->
+    <div id="order-confirmation-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-success">
+            <div class="modal-body">
+                <div class="success-icon">✅</div>
+                <h2>¡Pedido Confirmado!</h2>
+                <div id="order-confirmation-content">
+                    <!-- Contenido dinámico -->
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" onclick="viewOrderDetails()">Ver Detalles</button>
+                    <button class="btn-secondary" onclick="closeModal('order-confirmation-modal')">Continuar Comprando</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="chatbot.js"></script>
+    <script src="ai-engine.js"></script>
+    <script src="voice-and-export.js"></script>
+    <script src="auth-system.js"></script>
+    <script src="checkout-system.js"></script>
+    <script src="training-system.js"></script>
     <script src="app.js"></script>
+    <script src="app-v6.js"></script>
+    <script src="app-v7.js"></script>
 </body>
 </html>
