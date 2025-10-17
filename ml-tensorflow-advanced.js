@@ -25,18 +25,25 @@ class MLTensorFlowAdvanced {
     }
 
     async init() {
-        console.log('ML TensorFlow Advanced v16.0 inicializado');
+        try {
+            console.log('ML TensorFlow Advanced v16.0 inicializado');
 
-        // Verificar si TensorFlow.js está disponible
-        if (typeof tf === 'undefined') {
-            console.warn('TensorFlow.js no está cargado. Funcionando en modo simulación.');
+            // Verificar si TensorFlow.js está disponible
+            if (typeof tf === 'undefined') {
+                console.warn('⚠️ TensorFlow.js no está cargado. Funcionando en modo simulación.');
+                console.info('💡 Para habilitar ML real, agrega: <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>');
+                this.useFallback = true;
+            } else {
+                console.log('✅ TensorFlow.js versión:', tf.version.tfjs);
+                await this.loadOrCreateModel();
+            }
+
+            this.initialized = true;
+        } catch (error) {
+            console.error('Error inicializando ML:', error);
             this.useFallback = true;
-        } else {
-            console.log('TensorFlow.js versión:', tf.version.tfjs);
-            await this.loadOrCreateModel();
+            this.initialized = true;
         }
-
-        this.initialized = true;
     }
 
     // ====================================

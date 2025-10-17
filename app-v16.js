@@ -13,7 +13,15 @@
 (function() {
     'use strict';
 
-    console.log('%c✨ Nivel 16 Ultimate Cargado', 'background: #8b5cf6; color: white; padding: 8px; font-weight: bold; font-size: 14px;');
+    // Manejo global de errores para evitar que errores en v16 rompan todo
+    const originalConsoleError = console.error;
+    console.error = function(...args) {
+        // Log pero no detener ejecución
+        originalConsoleError.apply(console, args);
+    };
+
+    try {
+        console.log('%c✨ Nivel 16 Ultimate Cargado', 'background: #8b5cf6; color: white; padding: 8px; font-weight: bold; font-size: 14px;');
 
     // ====================================
     // INICIALIZACIÓN
@@ -411,6 +419,11 @@
         document.addEventListener('DOMContentLoaded', startV16);
     } else {
         startV16();
+    }
+
+    } catch (error) {
+        console.error('Error inicializando v16:', error);
+        console.warn('⚠️ Algunas funciones de v16 pueden no estar disponibles');
     }
 
 })();
