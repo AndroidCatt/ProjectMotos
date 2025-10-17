@@ -155,7 +155,7 @@ function setupRealtimeChat() {
 
     realtimeChat.on('typing', (data) => {
         console.log('[Chat] Usuarios escribiendo:', data.users);
-        showTypingIndicator(data.users);
+        showRealtimeTyping(data.users);
     });
 
     realtimeChat.on('presence', (data) => {
@@ -270,14 +270,15 @@ function displayChatMessage(message) {
     container.scrollTop = container.scrollHeight;
 }
 
-function showTypingIndicator(users) {
-    const indicator = document.getElementById('typing-indicator');
+function showRealtimeTyping(users) {
+    // Renombrado para no colisionar con showTypingIndicator de app.js
+    const indicator = document.getElementById('realtime-typing-indicator');
     if (!indicator) return;
 
-    if (users.length > 0) {
+    if (users && users.length > 0) {
         indicator.textContent = `${users.join(', ')} está escribiendo...`;
         indicator.style.display = 'block';
-    } else {
+    } else if (indicator) {
         indicator.style.display = 'none';
     }
 }
