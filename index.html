@@ -3,6 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema completo de e-commerce con chatbot inteligente para repuestos de motos colombianas. PWA con modo offline, reviews y más.">
+    <meta name="theme-color" content="#667eea">
+
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Repuestos Motos">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+
     <title>ChatBot Repuestos de Motos Colombianas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,7 +30,7 @@
                     <div class="bot-avatar">🤖</div>
                     <div>
                         <h1>ChatBot de Repuestos</h1>
-                        <p>Motos Colombianas - Asistente Inteligente v7.0 🚀</p>
+                        <p>Motos Colombianas - Asistente Inteligente v8.0 📱</p>
                     </div>
                 </div>
                 <div class="header-actions">
@@ -49,20 +65,22 @@
             <div id="chat-messages" class="chat-messages">
                 <div class="welcome-banner">
                     <h2>¡Bienvenido! 👋</h2>
-                    <p>Soy tu asistente virtual inteligente v7.0 para encontrar repuestos de motos. Características premium:</p>
+                    <p>Soy tu asistente virtual inteligente v8.0 para encontrar repuestos de motos. Características premium:</p>
                     <ul>
+                        <li>📱 PWA - Funciona sin conexión (modo offline)</li>
+                        <li>🔔 Notificaciones Push en tiempo real</li>
+                        <li>⭐ Sistema de reviews y calificaciones</li>
+                        <li>📊 Dashboard de administrador completo</li>
+                        <li>🔗 Listas de deseos compartidas (con links)</li>
                         <li>🔐 Sistema de autenticación completo</li>
                         <li>💳 Checkout con 7 métodos de pago</li>
                         <li>📦 Gestión y tracking de pedidos</li>
-                        <li>🔍 Búsqueda inteligente con IA</li>
                         <li>🎤 Chat por voz (Speech-to-Text)</li>
-                        <li>💰 Precios en tiempo real con descuentos</li>
-                        <li>❤️ Favoritos y carrito de compras</li>
                         <li>📄 Exportación a PDF profesional</li>
                         <li>⚖️ Comparación de productos</li>
                         <li>🏆 Sistema de gamificación</li>
                         <li>🎨 Modo oscuro elegante</li>
-                        <li>📱 Diseño responsive</li>
+                        <li>📱 Diseño 100% responsive</li>
                     </ul>
                     <p class="start-message">Escribe "hola" para comenzar o usa la búsqueda rápida 🚀</p>
                     <div class="welcome-stats">
@@ -383,14 +401,26 @@
         </div>
     </div>
 
+    <!-- Scripts Base -->
     <script src="chatbot.js"></script>
     <script src="ai-engine.js"></script>
     <script src="voice-and-export.js"></script>
+    <script src="training-system.js"></script>
+
+    <!-- Scripts Nivel 7: Auth y Checkout -->
     <script src="auth-system.js"></script>
     <script src="checkout-system.js"></script>
-    <script src="training-system.js"></script>
+
+    <!-- Scripts Nivel 8: PWA, Reviews, Admin, Wishlist -->
+    <script src="pwa-system.js"></script>
+    <script src="review-system.js"></script>
+    <script src="admin-dashboard.js"></script>
+    <script src="wishlist-share.js"></script>
+
+    <!-- Integraciones -->
     <script src="app.js"></script>
     <script src="app-v6.js"></script>
     <script src="app-v7.js"></script>
+    <script src="app-v8.js"></script>
 </body>
 </html>
