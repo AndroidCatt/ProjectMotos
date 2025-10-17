@@ -73,13 +73,13 @@ function initializeWebSocket() {
         };
 
         wsClient.onerror = (error) => {
-            console.error('[WebSocket] Error:', error);
+            console.warn('[WebSocket] Servidor no disponible, modo offline');
         };
 
         wsClient.onclose = () => {
-            console.log('[WebSocket] Desconectado del servidor');
-            // Intentar reconectar después de 5 segundos
-            setTimeout(initializeWebSocket, 5000);
+            console.log('[WebSocket] Desconectado - Funcionando en modo offline');
+            // NO reconectar automáticamente para evitar spam de errores
+            wsClient = null;
         };
     } catch (error) {
         console.warn('[WebSocket] Servidor no disponible, usando modo simulado');
