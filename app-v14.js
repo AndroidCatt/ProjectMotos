@@ -114,27 +114,14 @@
     // ====================================
 
     function setupAIIntegration() {
-        // Interceptar mensajes del usuario para procesarlos con IA avanzada
-        const originalSendMessage = window.sendMessage;
+        // DESHABILITADO: La interceptación causa conflictos
+        // El sistema de IA conversacional está disponible pero no interfiere
+        // con el flujo normal del chatbot
 
-        if (typeof originalSendMessage === 'function') {
-            window.sendMessage = async function(message) {
-                // Procesar con IA avanzada primero
-                const aiResponse = await aiConversational.processMessage(message);
+        console.log('✅ IA Conversacional disponible (v14.testAI para probar)');
 
-                console.log('AI Response:', aiResponse);
-
-                // Si requiere escalación, mostrar alerta
-                if (aiResponse.requiresEscalation) {
-                    showEscalationAlert();
-                }
-
-                // Continuar con el flujo original
-                return originalSendMessage.call(this, message);
-            };
-
-            console.log('✅ Integración con IA configurada');
-        }
+        // La IA puede ser usada directamente con v14.testAI(message) en consola
+        // sin interceptar el flujo normal del chatbot
     }
 
     function showEscalationAlert() {

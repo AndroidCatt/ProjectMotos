@@ -137,6 +137,12 @@ class AIConversationalAdvanced {
     // ====================================
 
     analyzeSentiment(text) {
+        // Validar que text existe y es string
+        if (!text || typeof text !== 'string') {
+            console.warn('analyzeSentiment: text is undefined or not a string');
+            return { label: 'neutral', score: 0 };
+        }
+
         const positive = ['excelente', 'perfecto', 'bueno', 'genial', 'increíble', 'maravilloso', 'gracias', 'bien'];
         const negative = ['malo', 'terrible', 'pésimo', 'problema', 'queja', 'error', 'no sirve', 'defectuoso'];
         const neutral = ['ok', 'normal', 'regular'];
