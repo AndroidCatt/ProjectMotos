@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test ChatBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        #chat-messages {
+            border: 1px solid #ccc;
+            height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .user-message {
+            background: #e3f2fd;
+            text-align: right;
+        }
+        .bot-message {
+            background: #f5f5f5;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        #input-container {
+            display: flex;
+            gap: 10px;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #send-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🤖 Test ChatBot Básico</h1>
+    <div id="chat-messages"></div>
+    <div id="input-container">
+        <input type="text" id="user-input" placeholder="Escribe algo...">
+        <button id="send-btn">Enviar</button>
+    </div>
+    <div id="error-log" style="margin-top: 20px; color: red;"></div>
+
+    <!-- Solo cargar chatbot.js -->
+    <script src="chatbot.js"></script>
+
+    <script>
+        // Capturar errores
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            const errorLog = document.getElementById('error-log');
+            errorLog.innerHTML += `<p class="error">ERROR: ${msg}<br>Archivo: ${url}<br>Línea: ${lineNo}:${columnNo}</p>`;
+            console.error('Error capturado:', msg, error);
+            return false;
+        };
+
+        // Test básico del chatbot
+        console.log('Iniciando test...');
+
+        let bot;
+        try {
+            bot = new ChatBot();
+            console.log('✅ ChatBot instanciado correctamente');
+        } catch (error) {
+            console.error('❌ Error al instanciar ChatBot:', error);
+            document.getElementById('error-log').innerHTML = `<p class="error">Error al crear ChatBot: ${error.message}</p>`;
+        }
+
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        function addMessage(text, isUser) {
+            const div = document.createElement('div');
+            div.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            div.textContent = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, true);
+            userInput.value = '';
+
+            try {
+                console.log('Procesando mensaje:', message);
+                const response = bot.processMessage(message);
+                console.log('Respuesta:', response);
+
+                if (response.response) {
+                    addMessage(response.response, false);
+                } else if (response.card) {
+                    addMessage(`[CARD] ${response.card.header || 'Sin título'}`, false);
+                }
+            } catch (error) {
+                console.error('❌ Error al procesar mensaje:', error);
+                document.getElementById('error-log').innerHTML += `<p class="error">Error al procesar: ${error.message}<br>Stack: ${error.stack}</p>`;
+                addMessage(`ERROR: ${error.message}`, false);
+            }
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Mensaje inicial
+        addMessage('Test iniciado. Escribe "hola" para comenzar.', false);
+    </script>
+</body>
+</html>

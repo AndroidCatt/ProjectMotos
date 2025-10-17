@@ -1,5 +1,16 @@
-// Inicializar el chatbot
-const bot = new ChatBot();
+// Inicializar el chatbot con validación
+let bot;
+try {
+    if (typeof ChatBot === 'undefined') {
+        throw new Error('ChatBot no está definido. Asegúrate de que chatbot.js se cargue primero.');
+    }
+    bot = new ChatBot();
+    console.log('✅ ChatBot inicializado correctamente');
+} catch (error) {
+    console.error('❌ Error al inicializar ChatBot:', error);
+    alert('Error crítico: No se pudo inicializar el chatbot. Por favor recarga la página.');
+}
+
 const chatMessages = document.getElementById('chat-messages');
 const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
@@ -331,6 +342,12 @@ function updateCartBadge() {
 
 // Función para manejar clics en botones
 function handleButtonClick(value) {
+    // Validar que bot esté inicializado
+    if (!bot) {
+        alert('Error: El chatbot no está inicializado. Por favor recarga la página.');
+        return;
+    }
+
     // Manejar acción de limpiar favoritos
     if (value === 'limpiar_favoritos') {
         if (confirm('¿Estás seguro de que quieres limpiar todos tus favoritos?')) {
@@ -366,13 +383,19 @@ function handleButtonClick(value) {
     // Obtener respuesta del bot con delay realista
     setTimeout(() => {
         hideTypingIndicator();
-        const botResponse = bot.processMessage(value);
 
-        // Mostrar respuesta del bot
-        if (botResponse.card) {
-            createCard(botResponse.card);
-        } else if (botResponse.response) {
-            addMessage(botResponse.response, false);
+        try {
+            const botResponse = bot.processMessage(value);
+
+            // Mostrar respuesta del bot
+            if (botResponse.card) {
+                createCard(botResponse.card);
+            } else if (botResponse.response) {
+                addMessage(botResponse.response, false);
+            }
+        } catch (error) {
+            console.error('Error al procesar clic:', error);
+            addMessage('❌ Error: No pude procesar la acción. ' + error.message, false);
         }
     }, 500 + Math.random() * 500); // Delay aleatorio entre 500-1000ms
 }
@@ -382,6 +405,12 @@ function sendMessage() {
     const message = userInput.value.trim();
 
     if (message === '') return;
+
+    // Validar que bot esté inicializado
+    if (!bot) {
+        alert('Error: El chatbot no está inicializado. Por favor recarga la página.');
+        return;
+    }
 
     // Mostrar mensaje del usuario
     addMessage(message, true);
@@ -395,13 +424,19 @@ function sendMessage() {
     // Obtener respuesta del bot con delay realista
     setTimeout(() => {
         hideTypingIndicator();
-        const botResponse = bot.processMessage(message);
 
-        // Mostrar respuesta del bot
-        if (botResponse.card) {
-            createCard(botResponse.card);
-        } else if (botResponse.response) {
-            addMessage(botResponse.response, false);
+        try {
+            const botResponse = bot.processMessage(message);
+
+            // Mostrar respuesta del bot
+            if (botResponse.card) {
+                createCard(botResponse.card);
+            } else if (botResponse.response) {
+                addMessage(botResponse.response, false);
+            }
+        } catch (error) {
+            console.error('Error al procesar mensaje:', error);
+            addMessage('❌ Error: No pude procesar tu mensaje. ' + error.message, false);
         }
     }, 600 + Math.random() * 600); // Delay aleatorio entre 600-1200ms
 }
